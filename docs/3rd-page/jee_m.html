@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE MAINS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121936;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #121936;
+            width: 100%;
+        }
+
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .search-container input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 100%;
+            margin-left: 8px;
+        }
+
+        .menu-options {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu-item {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #121936;
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header a {
+            color: #a0a0e0;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .content-container {
+            width: 95%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1.25fr;
+            gap: 50px;
+            margin-bottom: 70px;
+        }
+
+        .description {
+            background-color: #5f3a7e;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .description h2 {
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        .description p {
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .exam-details {
+            background-color: #4a3172;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .exam-details h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+        }
+
+        .detail-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .fee-info {
+            margin-top: 20px;
+        }
+
+        .fee-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .eligibility, .application {
+            margin-top: 40px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .criteria-list, .process-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .criteria-list li, .process-list li {
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+        }
+
+        .number {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .colleges-section {
+            margin-top: 50px;
+            grid-column: 1 / span 2;
+        }
+
+        .colleges-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(220px, 1fr));
+            gap: 40px;
+            margin: 30px 0 80px 0;
+        }
+
+        .college {
+            background-color: #232a45;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .college img {
+            width: 100%;
+            height: 130px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            color: #a0a0a0;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .description, .exam-details, .eligibility, .application, .colleges-section {
+                grid-column: 1;
+            }
+
+            .colleges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .colleges-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 30px;
+            }
+
+            .menu-options {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+          
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo" class="logo-img" style="height: 50px; width: 50px; object-fit: contain;"/>
+        </div>
+        
+        <div class="search-container">
+          <input type="text" placeholder="Search" />
+        </div>
+        
+        <div class="menu-options">
+          <a href="index1.html" class="menu-item">HOME</a>
+          <div class="menu-item">SAVED EXAMS</div>
+        </div>
+        
+        <div class="user-icon"></div>
+        
+      </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>JEE MAINS</h1>
+        <a href="https://jeemain.nta.nic.in/">https://jeemain.nta.nic.in/</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <div class="main-grid">
+            <!-- Description -->
+            <div class="description">
+                <h2>Description</h2>
+                <p>JEE Mains is a national-level entrance exam for admission to undergraduate engineering programs in India. Conducted by NTA, it assesses candidates in Physics, Chemistry, and Mathematics. The exam consists of two papers—Paper 1 for B.Tech/ B.E and Paper 2 for B.Arch/Planning. It serves as a gateway to prestigious institutions like IITs, NITs, and other government colleges.</p>
+            </div>
+
+            <!-- Exam Details -->
+            <div class="exam-details">
+                <h2>Exam Details</h2>
+
+                <div class="subtitle">Important dates</div>
+                <div class="detail-text">April 2, 3, 4, 7, 8, and 9, 2025</div>
+
+                <div class="subtitle">Syllabus</div>
+                <div class="detail-text">NCERT curriculum for class 11 and 12. Key areas cover Mechanics, Thermodynamics, Electrostatics, Organic Chemistry, Calculus, and more.</div>
+
+                <div class="subtitle">Fees</div>
+                <div class="fee-info">
+                    <div class="fee-row">
+                        <div>Indian Students -</div>
+                        <div>Rs. 1000</div>
+                    </div>
+                    <div class="fee-row">
+                        <div>Foreign Students -</div>
+                        <div>Rs. 5000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eligibility -->
+        <div class="section eligibility">
+            <h2>Eligibility Criteria</h2>
+            <ul class="criteria-list">
+                <li><span class="number">1.</span> Age: Born after October 1, 2000</li>
+                <li><span class="number">2.</span> 12th pass with Physics, Chemistry, and Math</li>
+                <li><span class="number">3.</span> Max 3 attempts in consecutive years</li>
+            </ul>
+        </div>
+
+        <!-- Application Process -->
+        <div class="section application">
+            <h2>Application Process</h2>
+            <ul class="process-list">
+                <li><span class="number">1.</span> Register: Create an account on the NTA website.</li>
+                <li><span class="number">2.</span> Upload photo, signature, and ID proof.</li>
+                <li><span class="number">3.</span> Pay the fee online and submit.</li>
+            </ul>
+        </div>
+
+        <!-- Colleges Section -->
+        <div class="section colleges-section">
+            <h2>Colleges accepting the exam:</h2>
+            <div class="colleges-grid">
+                <div class="college">
+                    <img src="https://storage.googleapis.com/prd-mercan-asset/2023/12/182951a6-img_4256-e1701917255923.jpg" alt="IGDTUW">
+                    <div>IGDTUW</div>
+                </div>
+                <div class="college">
+                    <img src="https://www.univariety.com/blog/wp-content/uploads/2015/08/iit-kharagpur.jpg" alt="IIT">
+                    <div>IIT</div>
+                </div>
+                <div class="college">
+                    <img src="https://www.pagalguy.com/wp-content/uploads/2018/10/FF19963065D94D19.jpg" alt="IISc">
+                    <div>IISC</div>
+                </div>
+                <div class="college">
+                    <img src="https://media.glassdoor.com/l/376030/nit-rourkela-office.jpg" alt="NIT">
+                    <div>NIT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>&copy; All rights reserved</div>
+        <div>Other important links</div>
+    </div>
+</body>
+</html>
