@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edularis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .l {
+      height: 5vh;
+      width: 3vw;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0F0C29;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 8vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4vw;
+      background: linear-gradient(90deg, #120438, #1a0747);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 0 2vw;
+    }
+
+    .search-bar input {
+      width: 20vw;
+      height: 4vh;
+      border-radius: 2vw;
+      border: none;
+      padding: 0 1vw;
+      font-size: 0.9vw;
+      background: #2c1e4f;
+      color: #fff;
+      box-shadow: 0 0 5px rgba(128, 90, 213, 0.5);
+      outline: none;
+    }
+
+    .centered {
+      text-align: center;
+      padding-top: 6vh;
+      background: linear-gradient(180deg, #140d38 0%, #2b1a59 100%);
+      padding-bottom: 10vh;
+    }
+
+    .tagline {
+      font-size: 1.2vw;
+      letter-spacing: 0.1vw;
+      color: #CFCBFF;
+    }
+
+    .title {
+      font-size: 3vw;
+      font-weight: 700;
+      color: #C084FC;
+      margin: 1vh 0;
+    }
+
+    .desc {
+      font-size: 1vw;
+      width: 50vw;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #BEBEFF;
+    }
+
+    .boxes-container {
+      display: flex;
+      justify-content: center;
+      gap: 2vw;
+      margin-top: -6vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-box {
+      background: #1f1235;
+      width: 18vw;
+      padding: 2vh 2vw;
+      border-radius: 1vw;
+      box-shadow: 0 0 25px 6px rgba(192, 132, 252, 0.5);
+      font-size: 0.9vw;
+      color: #D8D6FF;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .center {
+      top: -2vh;
+      height: 24vh;
+      width: 28vw;
+    }
+
+    .rotate-left {
+      transform: rotate(-6deg);
+      height: 25vh;
+      top: 2vh;
+      left: 3vw;
+    }
+
+    .rotate-right {
+      transform: rotate(6deg);
+      height: 25vh;
+      top: 2vh;
+      left: -3vw;
+      z-index: -1;
+    }
+
+    .img {
+      width: 60vw;
+      height: 75vh;
+      object-fit: cover;
+      border-radius: 1vw;
+    }
+
+    .mapp {
+      z-index: 6;
+      position: relative;
+      background: linear-gradient(180deg, #1a0c3d 0%, #351b6e 100%);
+      padding: 10vh 0;
+    }
+
+    .map-section {
+      text-align: center;
+      margin-top: -4vh;
+      padding: 0;
+      background: linear-gradient(180deg, #1a0c3d 0%, #351b6e 100%);
+      position: relative;
+    }
+
+    .map-section h2 {
+      font-size: 1.5vw;
+      font-weight: 600;
+      margin-bottom: 1vh;
+    }
+
+    .map-section p {
+      font-size: 1vw;
+      color: #c9c7f3;
+      margin-bottom: 4vh;
+    }
+
+    .clickable-india {
+      position: absolute;
+      top: 33%; 
+      left: 67.5%; 
+      width: 4vw;
+      height: 5vw;
+      background-color: rgba(255, 0, 0, 0); 
+      border-radius: 50%;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .testimonials {
+      text-align: center;
+      padding: 10vh 0;
+      background: linear-gradient(180deg, #220d4e, #331d6f);
+    }
+
+    .testimonials h2 {
+      font-size: 1.5vw;
+      font-weight: 700;
+    }
+
+    .testimonials p {
+      font-size: 0.9vw;
+      color: #cccaf0;
+      margin-bottom: 4vh;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2vw;
+      padding: 0 5vw;
+    }
+
+    #cardm {
+      width: 28vw;
+      height: 22vh;
+      padding-top: 5vh;
+    }
+
+    .card {
+      background: #2a1f4d;
+      padding: 2vh 2vw;
+      border-radius: 6vw;
+      width: 20vw;
+      text-align: center;
+      padding-top: 3vh;
+      height: 18vh;
+      font-size: 0.85vw;
+      line-height: 1.6;
+      box-shadow: 0 0 15px rgba(128, 90, 213, 0.5);
+    }
+
+    .footer {
+      padding: 2vh 5vw;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8vw;
+      color: #a59de2;
+      background: linear-gradient(180deg, #0d0821, #140a32);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img class="l" src="logo.png" alt="logo"></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+    </div>
+    <nav>
+      <a href="#" style="margin-right: 2vw; color: white; text-decoration: none; font-size: 0.9vw;">Home</a>
+      <a href="#" style="color: white; text-decoration: none; font-size: 0.9vw;">Saved Plans</a>
+    </nav>
+  </header>
+
+  <section class="centered">
+    <div class="tagline">WHERE AMBITION FINDS DIRECTION</div>
+    <div class="title">EDULARIS</div>
+    <div class="desc">
+      Edularis is your smart guide to global smart college education.<br />
+      We simplify complex eligibility, exams, costs, and college systems into a step-by-step roadmap that matches
+      students to global career paths.
+    </div>
+  </section>
+
+  <section class="boxes-container">
+    <div class="info-box rotate-left"></div>
+    <div class="info-box center">
+      We help students discover suitable courses and universities globally, understand requirements, compare
+      options, and create timelines for success. Our roadmap solves key pain points in international education by guiding students through every step:
+      eligibility, entrance exams, finances, visa process, and final admissions. 
+    </div>
+    <div class="info-box rotate-right"></div>
+  </section>
+
+  <section class="map-section">
+    <div class="mapp">
+      <h2>Choose Your Destination to Begin Your Journey</h2>
+      <p>Discover what it takes to study in your chosen country</p>
+      <div style="position: relative; display: inline-block;">
+        <img class="img" src="image.png" alt="India Map"/>
+        <a class="clickable-india" href="index2.html" title="Click India"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>TESTIMONIALS</h2>
+    <p>From the students now studying in their dream colleges</p>
+    <div class="testimonial-cards">
+      <div class="card">
+        <strong>@deeprath</strong><br />
+        Edularis gave me the direction I needed. Their roadmap cleared every doubt and gave me confidence!
+      </div>
+      <div class="card" id="cardm">
+        <strong>Diptesh M.</strong><br />
+        I'm preparing a couple of answers. Edularis gave me a clear view to start, included deadlines, exams to
+        focus on, and helped plan commitment strategies. Super helpful!
+      </div>
+      <div class="card">
+        <strong>Sarah D.</strong><br />
+        Their steps helped me understand the global education maze. Loved how simplified and visual everything
+        was.
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>copyright claims<br />all rights reserved</div>
+    <div>other imp links</div>
+  </footer>
+</body>
+</html>
